@@ -1,0 +1,78 @@
+$margin-xxs: 5px
+$margin-xs: 10px
+$margin-sm: 15px
+$margin-md: 30px
+$margin-lg: 45px
+$margin-xl: 60px
+$margin-xxl: 80px
+$padding-xxs: 5px
+$padding-xs: 15px
+$padding-sm: 25px
+$padding-md: 35px
+$padding-lg: 45px
+$padding-xl: 55px
+$padding-xxl: 75px
+
+// create single side margins
+$sides: top right bottom left
+$margin-sizes: (none, 0) (xxs, $margin-xxs) (xs, $margin-xs) (sm, $margin-sm) (md, $margin-md) (lg, $margin-lg) (xl, $margin-xl) (xxl, $margin-xxl)
+@each $side in $sides
+	@each $margin-size in $margin-sizes
+		$margin-size-label: nth($margin-size, 1)
+		$margin-size-px: nth($margin-size, 2)
+		.l-margin-#{$side}-#{$margin-size-label}
+			margin-#{$side}: $margin-size-px
+		.l-neg-margin-#{$side}-#{$margin-size-label}
+			margin-#{$side}: -$margin-size-px
+
+// create verical and horizontal margins (i.e. two-sided)
+$double-sides: (top, bottom, v) (left, right, h)
+@each $side in $double-sides
+	$side-label: nth($side, 3)
+	$side-css-1: nth($side, 1)
+	$side-css-2: nth($side, 2)
+	@each $margin-size in $margin-sizes
+		$margin-size-label: nth($margin-size, 1)
+		$margin-size-px: nth($margin-size, 2)
+		.l-#{$side-label}-margin-#{$margin-size-label}
+			margin-#{$side-css-1}: $margin-size-px
+			margin-#{$side-css-2}: $margin-size-px
+
+// create four sided margins
+@each $margin-size in $margin-sizes
+	$margin-size-label: nth($margin-size, 1)
+	$margin-size-px: nth($margin-size, 2)
+	.l-margin-#{$margin-size-label}
+		margin: #{$margin-size-px}
+
+// create single side paddings
+$sides: top right bottom left
+$padding-sizes: (none, 0) (xxs, $padding-xxs) (xs, $padding-xs) (sm, $padding-sm) (md, $padding-md) (lg, $padding-lg) (xl, $padding-xl) (xxl, $padding-xxl)
+@each $side in $sides
+	@each $padding-size in $padding-sizes
+		$padding-size-label: nth($padding-size, 1)
+		$padding-size-px: nth($padding-size, 2)
+		.l-padding-#{$side}-#{$padding-size-label}
+			padding-#{$side}: $padding-size-px
+		.l-neg-padding-#{$side}-#{$padding-size-label}
+			padding-#{$side}: -$padding-size-px
+
+// create verical and horizontal paddings (i.e. two-sided)
+$double-sides: (top, bottom, v) (left, right, h)
+@each $side in $double-sides
+	$side-label: nth($side, 3)
+	$side-css-1: nth($side, 1)
+	$side-css-2: nth($side, 2)
+	@each $padding-size in $padding-sizes
+		$padding-size-label: nth($padding-size, 1)
+		$padding-size-px: nth($padding-size, 2)
+		.l-#{$side-label}-padding-#{$padding-size-label}
+			padding-#{$side-css-1}: $padding-size-px
+			padding-#{$side-css-2}: $padding-size-px
+
+// create four sided paddings
+@each $padding-size in $padding-sizes
+	$padding-size-label: nth($padding-size, 1)
+	$padding-size-px: nth($padding-size, 2)
+	.l-padding-#{$padding-size-label}
+		padding: #{$padding-size-px}
