@@ -12,7 +12,8 @@ var _ = require('underscore.string')
       'streamqueue',
       'uglify-save-license',
       'wiredep',
-      'yargs'
+      'yargs',
+      'browser-sync'
     ]
   })
 
@@ -22,7 +23,7 @@ var _ = require('underscore.string')
   , appImages = path.join(appBase, 'images/**/*')
   , appMarkupFiles = path.join(appBase, '**/*.{haml,html,jade}')
   , appScriptFiles = path.join(appBase, '**/*.{ts,coffee,js}')
-  , appStyleFiles = path.join(appBase, '**/*.{css,less,sass,styl}')
+  , appStyleFiles = path.join(appBase, '/styles/main.sass')
 
   , isProd = $.yargs.argv.stage === 'prod'
 
@@ -95,7 +96,7 @@ gulp.task('styles', ['clean'], function () {
     .pipe($.if(isProd, $.concat('app.css')))
     .pipe($.if(isProd, $.cssmin()))
     .pipe($.if(isProd, $.rev()))
-    .pipe(gulp.dest(buildConfig.buildCss));
+    .pipe(gulp.dest(buildConfig.buildCss))
 });
 
 // compile scripts and copy into build directory

@@ -1,0 +1,68 @@
+$inter-card-margin: 4px
+
+.card
+	padding: 4px
+	margin-top: $inter-card-margin
+
+.card--dark
+	background-color: #333
+	color: #fff
+.card--darker
+	background-color: #222
+	color: #fff
+
+.card__heading
+	color: #aaa
+	padding: 4px 12px
+.card__heading--darker
+	background-color: #111
+
+.card--xs
+	height: 120px - $inter-card-margin
+.card--sm
+	height: 240px - $inter-card-margin
+.card--md
+	height: 480px - $inter-card-margin
+
+%cart__h-padding
+	padding-left: 16px
+	padding-right: 16px
+
+.card__main
+	@extend %cart__h-padding
+.card__change
+	@extend %cart__h-padding
+	.fa
+		font-size: 0.75em
+.card__change--up
+	color: #6ee33a
+.card__change--down
+	color: #ff6868
+
+.card__chart
+
+.card__text--xs
+	font-size: 1.2rem
+	line-height: 1.8rem
+.card__text--md
+	font-size: 3rem
+	line-height: 3.5rem
+	margin-bottom: 0
+.card__text--lg
+	font-size: 4.5rem
+	line-height: 4.5rem
+	font-weight: 400
+	letter-spacing: 1px
+	margin-bottom: 0
+.card__text--xl
+	font-size: 6rem
+	line-height: 6rem
+	font-weight: 400
+	letter-spacing: 1px
+	margin-bottom: 0
+.card__text--xxl
+	font-size: 8rem
+	line-height: 8.5rem
+	font-weight: 400
+	letter-spacing: 1px
+	margin-bottom: 0

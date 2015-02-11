@@ -1,3 +1,81 @@
-<h2>home</h2>
-<p>{{home.ctrlName}}</p>
-<a class="btn btn-primary">Button test</a>
+<div class="container-fluid bg--black l-padding-bottom-xxl">
+	<div class="container">
+		
+		<!-- Top heading -->
+		<h1 class="text--center text--white l-padding-top-md l-padding-bottom-sm">Cart Dashboard (Marketing)</h1>
+		<!-- end: Top heading -->
+
+		<!-- first row -->
+		<div class="row">
+
+			<!-- date and time -->
+			<div class="col-md-3 l-gutter-xs">
+				<div class="card card--xs card--darker" horizontal layout center center-justified>
+					<div class="card__main">
+						<p class="card__text--xl">{{ home.currentTime | date: 'hh:mm' }}</p>
+					</div>
+				</div>
+				<div class="card card--xs card--dark" horizontal layout center center-justified>
+					<div class="card__main">
+						<p class="card__text--md">{{ home.currentTime | date: 'EEEE' }}</p>
+						<p class="card__text--md">{{ home.currentTime | date: 'MMM d, yyyy' }}</p>
+					</div>
+				</div>
+			</div>
+			<!-- end: date and time -->
+
+			<!-- visitor count -->
+			<div class="col-md-3 l-gutter-xs">
+				<div class="card card--sm card--darker">
+					<div class="card__heading card__heading--darker">
+						<p class="text--sm text--normal l-margin-bottom-none">Visitor count, today</p>
+					</div>
+					<div class="card__main">
+						<p class="card__text--xxl">{{ home.chartData[0].visitors }}</p>
+					</div>
+					<div class="card__change">
+						<p class="card__text--md" ng-class="{'card__change--up': home.dailyDiff >= 0, 'card__change--down': home.dailyDiff < 0}">
+							<i class="fa fa-play l-margin-right-xxs" ng-class="{'fa-rotate-270': home.dailyDiff >= 0, 'fa-rotate-90': home.dailyDiff < 0}"></i>
+							{{ home.dailyDiff }}
+						</p>
+					</div>
+					<div class="card__chart">
+						<line-chart height="80" margin="{top: 16, right: 16, left: 16, bottom: 16}" dataset="home.chartData"></line-chart>
+					</div>
+				</div>
+			</div>
+			<!-- visitor count -->
+
+		</div>
+		<!-- end: first row -->
+
+		<!-- second row -->
+		<div class="row">
+
+			<!-- visitor count -->
+			<div class="col-md-9 l-gutter-xs">
+				<div class="card card--md card--darker">
+					<div class="card__heading card__heading--darker">
+						<p class="text--sm text--normal l-margin-bottom-none">Visitor count, today</p>
+					</div>
+					<div class="card__main">
+						<p class="card__text--xxl">{{ home.chartData2[0].visitors }}</p>
+					</div>
+					<div class="card__change">
+						<p class="card__text--md" ng-class="{'card__change--up': home.dailyDiff >= 0, 'card__change--down': home.dailyDiff < 0}">
+							<i class="fa fa-play l-margin-right-xxs" ng-class="{'fa-rotate-270': home.dailyDiff >= 0, 'fa-rotate-90': home.dailyDiff < 0}"></i>
+							{{ home.dailyDiff }}
+						</p>
+					</div>
+					<div class="card__chart">
+						<line-chart height="80" margin="{top: 16, right: 16, left: 16, bottom: 16}" dataset="home.chartData"></line-chart>
+					</div>
+				</div>
+			</div>
+			<!-- visitor count -->
+
+		</div>
+		<!-- end: second row -->
+
+	</div>
+</div>

@@ -2534,6 +2534,7 @@ input[type="button"].btn-block {
 
 body {
   font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.6rem;
   font-weight: 300;
   line-height: 2.7rem;
 }
@@ -2603,22 +2604,30 @@ label {
   margin-bottom: 0rem;
 }
 
-.l-remove-left-gutter, .l-remove-gutter {
+.l-left-gutter-none, .l-gutter-none {
   padding-left: 0;
 }
 @media (max-width: 992px) {
-  .l-remove-left-gutter, .l-remove-gutter {
+  .l-left-gutter-none, .l-gutter-none {
     padding-left: 15px;
   }
 }
 
-.l-remove-right-gutter, .l-remove-gutter {
+.l-right-gutter-none, .l-gutter-none {
   padding-right: 0;
 }
 @media (max-width: 992px) {
-  .l-remove-right-gutter, .l-remove-gutter {
+  .l-right-gutter-none, .l-gutter-none {
     padding-right: 15px;
   }
+}
+
+.l-left-gutter-xs, .l-gutter-xs {
+  padding-left: 2px;
+}
+
+.l-right-gutter-xs, .l-gutter-xs {
+  padding-right: 2px;
 }
 
 .l-relative {
@@ -3618,6 +3627,199 @@ html [self-stretch] {
   padding: 75px;
 }
 
-body {
-  background-color: #E5E5E5;
+.bg--black {
+  background-color: #000;
+}
+
+.bg--darkest {
+  background-color: #111;
+}
+
+.bg--darker {
+  background-color: #222;
+}
+
+.bg--dark {
+  background-color: #444;
+}
+
+.card {
+  padding: 4px;
+  margin-top: 4px;
+}
+
+.card--dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.card--darker {
+  background-color: #222;
+  color: #fff;
+}
+
+.card__heading {
+  color: #aaa;
+  padding: 4px 12px;
+}
+
+.card__heading--darker {
+  background-color: #111;
+}
+
+.card--xs {
+  height: 116px;
+}
+
+.card--sm {
+  height: 236px;
+}
+
+.card--md {
+  height: 476px;
+}
+
+.card__main, .card__change {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.card__change .fa {
+  font-size: 0.75em;
+}
+
+.card__change--up {
+  color: #6ee33a;
+}
+
+.card__change--down {
+  color: #ff6868;
+}
+
+.card__text--xs {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+.card__text--md {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  margin-bottom: 0;
+}
+
+.card__text--lg {
+  font-size: 4.5rem;
+  line-height: 4.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+
+.card__text--xl {
+  font-size: 6rem;
+  line-height: 6rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+
+.card__text--xxl {
+  font-size: 8rem;
+  line-height: 8.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+
+.text--white {
+  color: #fff;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--left {
+  text-align: left;
+}
+
+.text--right {
+  text-align: right;
+}
+
+.text--xs {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+.text--sm {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.text--reg {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.text--md {
+  font-size: 2rem;
+  line-height: 2.8rem;
+}
+
+.text--lg {
+  font-size: 2.5rem;
+  line-height: 3.2rem;
+}
+
+.text--xl {
+  font-size: 3rem;
+  line-height: 4rem;
+}
+
+.text--xxl {
+  font-size: 5rem;
+  line-height: 6.5rem;
+}
+
+.text--italic {
+  font-style: italic;
+}
+
+.text--strike {
+  text-decoration: line-through;
+}
+
+.text--underline {
+  text-decoration: underline;
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.text--lowercase {
+  text-transform: lowercase;
+}
+
+.text--light {
+  font-weight: 300;
+}
+
+.text--normal {
+  font-weight: 400;
+}
+
+.text--semi-bold {
+  font-weight: 600;
+}
+
+.text--bold {
+  font-weight: 700;
+}
+
+path {
+  stroke: #3aa9e3;
+  stroke-width: 2;
+  fill: none;
 }

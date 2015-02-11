@@ -1,15 +1,23 @@
 // Gutter settings
-.l-remove-left-gutter
+.l-left-gutter-none
 	padding-left: 0
 	@media (max-width: 992px)
 		padding-left: 15px
-.l-remove-right-gutter
+.l-right-gutter-none
 	padding-right: 0
 	@media (max-width: 992px)
 		padding-right: 15px
-.l-remove-gutter
-	@extend .l-remove-left-gutter
-	@extend .l-remove-right-gutter
+.l-gutter-none
+	@extend .l-left-gutter-none
+	@extend .l-right-gutter-none
+
+.l-left-gutter-xs
+	padding-left: 2px
+.l-right-gutter-xs
+	padding-right: 2px
+.l-gutter-xs
+	@extend .l-left-gutter-xs
+	@extend .l-right-gutter-xs
 
 // Display settings
 .l-relative
