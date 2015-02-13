@@ -18,11 +18,19 @@
     $scope.home.ctrlName = 'HomeCtrl';
 
     // Retrieve chart data
-    $scope.home.chartData = Chart.dataset;
-    $scope.home.chartData2 = Chart.dataset2;
+    $scope.home.visitorDataObj = Chart.datasetArray[0];
+    $scope.home.conversionDataObj = Chart.datasetArray[1];
+    $scope.home.errorDataObj = Chart.datasetArray[2];
+    $scope.home.chartDataArray = Chart.datasetArray;
+
+    $scope.home.visitorDataArray = Chart.datasetArray[0][Object.keys(Chart.datasetArray[0])[0]];
+    $scope.home.conversionDataArray = Chart.datasetArray[1][Object.keys(Chart.datasetArray[1])[0]];
+    $scope.home.errorDataArray = Chart.datasetArray[2][Object.keys(Chart.datasetArray[2])[0]];
 
     // Get difference from yesterday
-    $scope.home.dailyDiff = $scope.home.chartData[0].visitors - $scope.home.chartData[1].visitors;
+    $scope.home.visitorDailyDiff = $scope.home.visitorDataArray[0][1] - $scope.home.visitorDataArray[1][1];
+    $scope.home.conversionDailyDiff = $scope.home.conversionDataArray[0][1] - $scope.home.conversionDataArray[1][1];
+    $scope.home.errorDailyDiff = $scope.home.errorDataArray[0][1] - $scope.home.errorDataArray[1][1];
 
     // Get current date and time
     $scope.minuteInterval = 1000;

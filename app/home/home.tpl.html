@@ -31,16 +31,16 @@
 						<p class="text--sm text--normal l-margin-bottom-none">Visitor count, today</p>
 					</div>
 					<div class="card__main">
-						<p class="card__text--xxl">{{ home.chartData[0].visitors }}</p>
+						<p class="card__text--xxl">{{ home.visitorDataArray[0][1] }}</p>
 					</div>
 					<div class="card__change">
-						<p class="card__text--md" ng-class="{'card__change--up': home.dailyDiff >= 0, 'card__change--down': home.dailyDiff < 0}">
-							<i class="fa fa-play l-margin-right-xxs" ng-class="{'fa-rotate-270': home.dailyDiff >= 0, 'fa-rotate-90': home.dailyDiff < 0}"></i>
-							{{ home.dailyDiff }}
+						<p class="card__text--md" ng-class="{'card__change--up': home.visitorDailyDiff >= 0, 'card__change--down': home.visitorDailyDiff < 0}">
+							<i class="fa fa-play l-margin-right-xxs" ng-class="{'fa-rotate-270': home.visitorDailyDiff >= 0, 'fa-rotate-90': home.visitorDailyDiff < 0}"></i>
+							{{ home.visitorDailyDiff }}
 						</p>
 					</div>
 					<div class="card__chart">
-						<line-chart height="80" margin="{top: 16, right: 16, left: 16, bottom: 16}" dataset="home.chartData"></line-chart>
+						<line-chart height="80" margin="{top: 16, right: 16, left: 16, bottom: 16}" dataset="home.visitorDataObj"></line-chart>
 					</div>
 				</div>
 			</div>
@@ -56,19 +56,10 @@
 			<div class="col-md-9 l-gutter-xs">
 				<div class="card card--md card--darker">
 					<div class="card__heading card__heading--darker">
-						<p class="text--sm text--normal l-margin-bottom-none">Visitor count, today</p>
+						<p class="text--sm text--normal l-margin-bottom-none">Visitors <span class="text--italic">vs.</span> Conversions <span class="text--italic">vs.</span> Errors, today</p>
 					</div>
-					<div class="card__main">
-						<p class="card__text--xxl">{{ home.chartData2[0].visitors }}</p>
-					</div>
-					<div class="card__change">
-						<p class="card__text--md" ng-class="{'card__change--up': home.dailyDiff >= 0, 'card__change--down': home.dailyDiff < 0}">
-							<i class="fa fa-play l-margin-right-xxs" ng-class="{'fa-rotate-270': home.dailyDiff >= 0, 'fa-rotate-90': home.dailyDiff < 0}"></i>
-							{{ home.dailyDiff }}
-						</p>
-					</div>
-					<div class="card__chart">
-						<line-chart height="80" margin="{top: 16, right: 16, left: 16, bottom: 16}" dataset="home.chartData"></line-chart>
+					<div class="card__chart l-margin-top-lg">
+						<line-chart height="352" margin="{top: 24, right: 40, left: 64, bottom: 24}" multi-dataset="true" dataset="home.chartDataArray" y-domain-start-zero="true" has-x-axis="true" has-y-axis="true" has-label="true"></line-chart>
 					</div>
 				</div>
 			</div>
