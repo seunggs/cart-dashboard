@@ -16,6 +16,8 @@
   function HomeCtrl($scope, Chart, $interval) {
     $scope.home = {};
     $scope.home.ctrlName = 'HomeCtrl';
+    
+    var i, j;
 
     // Retrieve chart data
     $scope.home.visitorDataObj = Chart.datasetArray[0];
@@ -23,14 +25,32 @@
     $scope.home.errorDataObj = Chart.datasetArray[2];
     $scope.home.chartDataArray = Chart.datasetArray;
 
-    $scope.home.visitorDataArray = Chart.datasetArray[0][Object.keys(Chart.datasetArray[0])[0]];
-    $scope.home.conversionDataArray = Chart.datasetArray[1][Object.keys(Chart.datasetArray[1])[0]];
-    $scope.home.errorDataArray = Chart.datasetArray[2][Object.keys(Chart.datasetArray[2])[0]];
+    // Retrieve array from each chart data
+    $scope.home.visitorDataArray = $scope.home.visitorDataObj[Object.keys($scope.home.visitorDataObj)[0]];
+    $scope.home.conversionDataArray = $scope.home.conversionDataObj[Object.keys($scope.home.conversionDataObj)[0]];
+    $scope.home.errorDataArray = $scope.home.errorDataObj[Object.keys($scope.home.errorDataObj)[0]];
 
-    // Get difference from yesterday
-    $scope.home.visitorDailyDiff = $scope.home.visitorDataArray[0][1] - $scope.home.visitorDataArray[1][1];
-    $scope.home.conversionDailyDiff = $scope.home.conversionDataArray[0][1] - $scope.home.conversionDataArray[1][1];
-    $scope.home.errorDailyDiff = $scope.home.errorDataArray[0][1] - $scope.home.errorDataArray[1][1];
+    // Create an object for conversion rate
+    $scope.home.conversionRateArray = []; // first create an array
+    for (i=0;i<$scope.home.visitorDataArray.length;i++) {
+      for (j=0;j<1;j++) {
+        $scope.home.conversionRateArray.push([$scope.home.conversionDataArray[i][0], $scope.home.conversionDataArray[i][1] / $scope.home.visitorDataArray[i][1]]);
+      }
+    }
+    $scope.home.conversionRateObj = {
+      'Conversion Rate': $scope.home.conversionRateArray
+    };
+
+    // Create an object for bounce rate
+    $scope.home.bounceRateArray = []; // first create an array
+    for (i=0;i<$scope.home.visitorDataArray.length;i++) {
+      for (j=0;j<1;j++) {
+        $scope.home.bounceRateArray.push([$scope.home.conversionDataArray[i][0], 1 - $scope.home.conversionDataArray[i][1] / $scope.home.visitorDataArray[i][1]]);
+      }
+    }
+    $scope.home.bounceRateObj = {
+      'Bounce Rate': $scope.home.bounceRateArray
+    };
 
     // Get current date and time
     $scope.minuteInterval = 1000;

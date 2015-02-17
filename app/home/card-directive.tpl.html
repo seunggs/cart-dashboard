@@ -1,0 +1,29 @@
+<div class="col-md-{{col}} l-gutter-xs">
+	<div class="card card--{{size}} card--darker">
+		<div class="card__heading card__heading--darker">
+			<div ng-transclude class="text--sm text--normal l-margin-bottom-none"></div>
+		</div>
+		<div class="card__main" ng-if="components.num">
+			<p ng-if="!rate" class="card__text--xxl">{{ card.dataArray[0][1] }}</p>
+			<p ng-if="rate" class="card__text--xxl">{{ card.dataArray[0][1] * 100 | number:1 }}<span class="card__text--lg">%</span></p>
+		</div>
+		<div class="card__change" ng-if="components.change">
+			<p class="card__text--md" ng-class="{'card__change--up': card.dailyDiff >= 0, 'card__change--down': card.dailyDiff < 0}">
+				<i class="fa fa-play l-margin-right-xxs" ng-class="{'fa-rotate-270': card.dailyDiff >= 0, 'fa-rotate-90': card.dailyDiff < 0}"></i>
+				<span ng-if="!rate">{{ card.dailyDiff }}</span>
+				<span ng-if="rate">{{ card.dailyDiff * 100 | number:1 }}%</span>
+			</p>
+		</div>
+		<div class="card__chart" ng-if="components.chart">
+
+			<!-- simle chart -->
+			<line-chart ng-if="components.chartType === 'simple'" height="{{chartHeight}}" margin="{top: 16, right: 16, left: 16, bottom: 16}" dataset="dataset" multi-dataset="multiDataset" has-label="hasLabel" label-type="{{labelType}}"></line-chart>
+			<!-- end: simle chart -->
+			
+			<!-- comprehensive chart -->
+			<line-chart ng-if="components.chartType === 'comprehensive'" height="{{chartHeight}}" margin="{top: 56, right: 40, left: 64, bottom: 24}" dataset="dataset" multi-dataset="multiDataset" y-domain-start-zero="true" has-x-axis="true" has-y-axis="true" has-label="hasLabel" label-type="{{labelType}}" show-dot="showDot"></line-chart>
+			<!-- comprehensive chart -->
+
+		</div>
+	</div>
+</div>

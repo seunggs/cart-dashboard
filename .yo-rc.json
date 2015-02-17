@@ -11,6 +11,6 @@
     "e2eTestFramework": "jasmine",
     "style": "scss",
     "ngRoute": false,
-    "lastUsedModule": "app"
+    "lastUsedModule": "home"
   }
 }

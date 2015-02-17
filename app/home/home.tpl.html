@@ -24,27 +24,17 @@
 			</div>
 			<!-- end: date and time -->
 
-			<!-- visitor count -->
-			<div class="col-md-3 l-gutter-xs">
-				<div class="card card--sm card--darker">
-					<div class="card__heading card__heading--darker">
-						<p class="text--sm text--normal l-margin-bottom-none">Visitor count, today</p>
-					</div>
-					<div class="card__main">
-						<p class="card__text--xxl">{{ home.visitorDataArray[0][1] }}</p>
-					</div>
-					<div class="card__change">
-						<p class="card__text--md" ng-class="{'card__change--up': home.visitorDailyDiff >= 0, 'card__change--down': home.visitorDailyDiff < 0}">
-							<i class="fa fa-play l-margin-right-xxs" ng-class="{'fa-rotate-270': home.visitorDailyDiff >= 0, 'fa-rotate-90': home.visitorDailyDiff < 0}"></i>
-							{{ home.visitorDailyDiff }}
-						</p>
-					</div>
-					<div class="card__chart">
-						<line-chart height="80" margin="{top: 16, right: 16, left: 16, bottom: 16}" dataset="home.visitorDataObj"></line-chart>
-					</div>
-				</div>
-			</div>
-			<!-- visitor count -->
+			<!-- visitors -->
+			<card dataset="home.visitorDataObj" col="3" size="sm">Visitor Count, Today</card>
+			<!-- end: visitors -->
+
+			<!-- conversions -->
+			<card dataset="home.conversionDataObj" col="3" size="sm">Conversions, Today</card>
+			<!-- end: conversions -->
+
+			<!-- conversion rate -->
+			<card dataset="home.conversionRateObj" col="3" size="sm" rate="true">Conversion Rate, Today</card>
+			<!-- end: conversion rate -->
 
 		</div>
 		<!-- end: first row -->
@@ -52,18 +42,15 @@
 		<!-- second row -->
 		<div class="row">
 
-			<!-- visitor count -->
-			<div class="col-md-9 l-gutter-xs">
-				<div class="card card--md card--darker">
-					<div class="card__heading card__heading--darker">
-						<p class="text--sm text--normal l-margin-bottom-none">Visitors <span class="text--italic">vs.</span> Conversions <span class="text--italic">vs.</span> Errors, today</p>
-					</div>
-					<div class="card__chart l-margin-top-lg">
-						<line-chart height="352" margin="{top: 24, right: 40, left: 64, bottom: 24}" multi-dataset="true" dataset="home.chartDataArray" y-domain-start-zero="true" has-x-axis="true" has-y-axis="true" has-label="true"></line-chart>
-					</div>
-				</div>
-			</div>
-			<!-- visitor count -->
+			<card dataset="home.chartDataArray" multi-dataset="true" col="9" size="md" components="{ num: false, change: false, chart: true, chartType: 'comprehensive' }" has-label="true" label-type="name" show-dot="true">Visitor vs Conversion vs Error, Today</card>
+
+			<!-- bounce rate -->
+			<card dataset="home.bounceRateObj" col="3" size="sm" rate="true">Cart Bounce Rate, Today</card>
+			<!-- end: bounce rate -->
+
+			<!-- errors -->
+			<card dataset="home.errorDataObj" col="3" size="sm">Errors, Today</card>
+			<!-- end: errors -->
 
 		</div>
 		<!-- end: second row -->
