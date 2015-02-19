@@ -8,12 +8,18 @@
    * @element
    *
    * @attributes
-      > dataset (required): Single dataset in OBJECT form for a single line. Multiple dataset objects accepted in an ARRAY form.
-      > multi-dataset (optional): Defaults to false. 
-                                 True if inputting multiple dataset objects in ARRAY form. 
-                                 False if inputting a single dataset object.
+      > dataset (required): Single dataset in OBJECT form for a single line. 
+                            Multiple dataset objects accepted in an ARRAY form.
+      > dataset-right (optional): Defaults to undefined (i.e. doesn't show on the chart)
+                                  If present, shows the dataset on the scale of the RIGHT y-axis
+                                  Single dataset in OBJECT form for a single line. 
+                                  Multiple dataset objects accepted in an ARRAY form.
+      > multi-dataset (required): True if inputting multiple dataset objects in ARRAY form.
+                                  False if inputting a single dataset object.
+      > multi-dataset-right (optional): Defaults to false
+                                        True if inputting multiple dataset objects in ARRAY form. 
+                                        False if inputting a single dataset object.
       > size (required): 1) sm; 2) md
-      > col (required): Bootstrap cols
       > chartHeight (optional)
       > components (optional): Defaults to { num: true, change: true, chart: true, chartType: 'simple'}
                                Pass in objects with desired components
@@ -23,11 +29,14 @@
       > label-type (optional): Defaults to day.
                                Options: 1) long; 2) name; 3) day
       > rate (optional): Defaults to false.
+                         If the dataset comprises rates rather than numbers, set to true.
+      > legend (optional): Defaults to false.
+                           When true, shows legend.
    * 
    * @description
    *
    * @example
-
+      <card dataset="home.chartDataArraySm" dataset-right="home.conversionRateObj" multi-dataset="true" multi-dataset-right="false" size="md" components="{ num: false, change: false, chart: true, chartType: 'comprehensive' }" has-label="true" label-type="name" show-dot="true">Visitor vs Conversion vs Conversion Rate, Today</card>
    *
    */
   angular
@@ -39,15 +48,18 @@
       restrict: 'EA',
       scope: {
         dataset: '=',
+        datasetRight: '=?',
         multiDataset: '=?',
+        multiDatasetRight: '=?',
         size: '@',
-        col: '@',
+        margin: '=?',
         chartHeight: '@?',
         components: '=?',
         hasLabel: '=?',
         labelType: '@?',
         rate: '@?',
-        showDot: '@?'
+        showDot: '@?',
+        legend: '@?'
       },
       templateUrl: 'home/card-directive.tpl.html',
       replace: false,
@@ -58,17 +70,24 @@
       link: function (scope, element, attrs) {
         /*jshint unused:false */
         scope.multiDataset = scope.multiDataset || false;
+        scope.multiDatasetRight = scope.multiDatasetRight || false;
         scope.hasLabel = scope.hasLabel || false;
         scope.labelType = scope.labelType || 'day';
         scope.components = scope.components || { num: true, change: true, chart: true, chartType: 'simple'};
         scope.rate = scope.rate || false;
         scope.showDot = scope.showDot || false;
-        
+        scope.legend = scope.legend || false;
+
         // set default height based on size
-        if (scope.size === 'sm') {
-          scope.chartHeight = scope.chartHeight || 80;
-        } else if (scope.size === 'md') {
-          scope.chartHeight = scope.chartHeight || 416;
+        switch (scope.size) {
+          case 'sm':
+            scope.chartHeight = scope.chartHeight || 80;
+            scope.margin = scope.margin || {top: 24, right: 16, left: 16, bottom: 16};
+            break;
+          case 'md':
+            scope.chartHeight = scope.chartHeight || 416;
+            scope.margin = scope.margin || {top: 56, right: 40, left: 64, bottom: 24};
+            break;
         }
 
         // create an array out of the dataset object if single line

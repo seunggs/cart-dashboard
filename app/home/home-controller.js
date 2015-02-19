@@ -25,6 +25,12 @@
     $scope.home.errorDataObj = Chart.datasetArray[2];
     $scope.home.chartDataArray = Chart.datasetArray;
 
+    // Get a subset of chart data (first two items)
+    $scope.home.chartDataArraySm = [];
+    for (i=0;i<Chart.datasetArray.length-1;i++) {
+      $scope.home.chartDataArraySm.push(Chart.datasetArray[i]);
+    }
+
     // Retrieve array from each chart data
     $scope.home.visitorDataArray = $scope.home.visitorDataObj[Object.keys($scope.home.visitorDataObj)[0]];
     $scope.home.conversionDataArray = $scope.home.conversionDataObj[Object.keys($scope.home.conversionDataObj)[0]];

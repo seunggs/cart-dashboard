@@ -25,15 +25,21 @@
 			<!-- end: date and time -->
 
 			<!-- visitors -->
-			<card dataset="home.visitorDataObj" col="3" size="sm">Visitor Count, Today</card>
+			<div class="col-md-3 l-gutter-xs">
+				<card dataset="home.visitorDataObj" size="sm">Visitor Count, Today</card>
+			</div>
 			<!-- end: visitors -->
 
 			<!-- conversions -->
-			<card dataset="home.conversionDataObj" col="3" size="sm">Conversions, Today</card>
+			<div class="col-md-3 l-gutter-xs">
+				<card dataset="home.conversionDataObj" size="sm">Conversions, Today</card>
+			</div>
 			<!-- end: conversions -->
 
 			<!-- conversion rate -->
-			<card dataset="home.conversionRateObj" col="3" size="sm" rate="true">Conversion Rate, Today</card>
+			<div class="col-md-3 l-gutter-xs">
+				<card dataset="home.conversionRateObj" size="sm" rate="true">Conversion Rate, Today</card>
+			</div>
 			<!-- end: conversion rate -->
 
 		</div>
@@ -42,18 +48,38 @@
 		<!-- second row -->
 		<div class="row">
 
-			<card dataset="home.chartDataArray" multi-dataset="true" col="9" size="md" components="{ num: false, change: false, chart: true, chartType: 'comprehensive' }" has-label="true" label-type="name" show-dot="true">Visitor vs Conversion vs Error, Today</card>
+			<!-- comparison charts -->
+			<div class="col-md-9 l-gutter-xs">
+				<card dataset="home.chartDataArray" multi-dataset="true" size="md" components="{ num: false, change: false, chart: true, chartType: 'comprehensive' }" has-label="true" label-type="name" show-dot="true">Visitor vs Conversion vs Error, Today</card>
+			</div>
+			<!-- end: comparison charts -->
 
 			<!-- bounce rate -->
-			<card dataset="home.bounceRateObj" col="3" size="sm" rate="true">Cart Bounce Rate, Today</card>
+			<div class="col-md-3 l-gutter-xs">
+				<card dataset="home.bounceRateObj" size="sm" rate="true">Cart Bounce Rate, Today</card>
+			</div>
 			<!-- end: bounce rate -->
 
 			<!-- errors -->
-			<card dataset="home.errorDataObj" col="3" size="sm">Errors, Today</card>
+			<div class="col-md-3 l-gutter-xs">
+				<card dataset="home.errorDataObj" size="sm">Errors, Today</card>
+			</div>
 			<!-- end: errors -->
 
 		</div>
 		<!-- end: second row -->
+
+		<!-- third row -->
+		<div class="row">
+
+			<!-- visitors, conversions, conversion rate -->
+			<div class="col-md-9 l-gutter-xs">
+				<card dataset="home.chartDataArraySm" dataset-right="home.conversionRateObj" multi-dataset="true" multi-dataset-right="false" size="md" margin="{ top: 64, right: 64, left: 64, bottom: 24 }" components="{ num: false, change: false, chart: true, chartType: 'comprehensive' }" has-label="false" show-dot="true" legend="true">Visitor vs Conversion vs Conversion Rate, Today</card>
+			</div>
+			<!-- end: visitors, conversions, conversion rate -->
+
+		</div>
+		<!-- end: third row -->
 
 	</div>
 </div>

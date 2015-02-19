@@ -21,7 +21,7 @@
   "disallowSpacesInsideObjectBrackets": "all",
   "disallowSpacesInsideParentheses": true,
   "disallowTrailingComma": true,
-  "disallowTrailingWhitespace": true,
+  //"disallowTrailingWhitespace": true,
   "disallowYodaConditions": true,
   "maximumLineLength": {
     "allowComments": true,
@@ -43,7 +43,7 @@
   ],
   "requireDotNotation": true,
   "requireLineFeedAtFileEnd": true,
-  "requireMultipleVarDecl": "onevar",
+  //"requireMultipleVarDecl": "onevar",
   "requireOperatorBeforeLineBreak": [
     "?",
     "=",
@@ -79,7 +79,6 @@
   "requireSpaceBeforeBinaryOperators": [
     "=", "+=", "-=", "*=", "/=", "%=", "<<=", ">>=", ">>>=",
     "&=", "|=", "^=", "+=",
-
     "+", "-", "*", "/", "%", "<<", ">>", ">>>", "&",
     "|", "^", "&&", "||", "===", "==", ">=",
     "<=", "<", ">", "!=", "!=="
