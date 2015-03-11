@@ -27,10 +27,10 @@ gulp.task('browserSync', function () {
 });
 
 gulp.task('sass', function() {
-  return gulp.src('app/styles/main.sass')
+  return gulp.src(buildConfig.appDir+'/styles/main.sass')
     .pipe($.compass({
-      css: 'app/styles',
-      sass: 'app/styles'
+      css: buildConfig.appDir+'/styles',
+      sass: buildConfig.appDir+'/styles'
     }))
     .pipe(gulp.dest(buildConfig.buildCss))
     .pipe($.browserSync.reload({stream:true}));

@@ -7,22 +7,22 @@ module.exports = {
   port: 3000,
 
   // app directories
-  appDir: 'app',
+  appDir: 'public',
 
   // unit test directories
-  unitTestDir: 'app',
+  unitTestDir: 'public',
 
   // build test dir
   buildTestDir: outDir + 'test/',
 
   // build directories
-  buildDir: outDir + 'app/',
-  buildCss: outDir + 'app/css/',
-  buildFonts: outDir + 'app/fonts/',
-  buildImages: outDir + 'app/images/',
-  buildJs: outDir + 'app/js/',
-  extDir: outDir + 'app/vendor/',
-  extCss: outDir + 'app/vendor/css/',
-  extFonts: outDir + 'app/vendor/fonts/',
-  extJs: outDir + 'app/vendor/js/'
+  buildDir: outDir + 'public/',
+  buildCss: outDir + 'public/css/',
+  buildFonts: outDir + 'public/fonts/',
+  buildImages: outDir + 'public/images/',
+  buildJs: outDir + 'public/js/',
+  extDir: outDir + 'public/vendor/',
+  extCss: outDir + 'public/vendor/css/',
+  extFonts: outDir + 'public/vendor/fonts/',
+  extJs: outDir + 'public/vendor/js/'
 };

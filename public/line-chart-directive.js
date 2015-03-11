@@ -426,7 +426,6 @@
 
             }
 
-            console.log(legendElementWidth);
             for (i=0;i<dataArray2Length;i++) {
 
               legendBox.append('line')
@@ -447,7 +446,6 @@
 
             }
 
-            console.log(legendElementWidth);
             legendBox.attr('transform', 'translate(' + (width/2 - legendElementWidth/2) + ',' + (-16) + ')')
           }
 

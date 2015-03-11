@@ -79,8 +79,8 @@ gulp.task('styles', ['clean'], function () {
     .pipe(lessFilter.restore())
     .pipe(sassFilter)
     .pipe($.compass({
-      css: 'app/styles',
-      sass: 'app/styles'
+      css: appBase+'/styles',
+      sass: appBase+'/styles'
     }))
     .pipe(sassFilter.restore())
     .pipe(stylusFilter)
